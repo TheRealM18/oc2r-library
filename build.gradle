@@ -198,6 +198,7 @@ curseforge {
             requiredDependency "architectury-api"
             requiredDependency "markdownmanual"
             requiredDependency "oc2r"
+            requiredDependency "oc2r-addon-core"
         }
     }
 }
