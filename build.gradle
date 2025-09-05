@@ -167,8 +167,8 @@ jar {
 }
 
 publish {
-//    dependsOn(tasks.modrinth)
-//    dependsOn(tasks.curseforge)
+    dependsOn(tasks.modrinth)
+    dependsOn(tasks.curseforge)
 }
 
 static def getCurseforgeSDKValue(minecraft_sdk) {
@@ -182,41 +182,42 @@ static def getCurseforgeSDKValue(minecraft_sdk) {
 }
 
 
-//curseforge {
-//    apiKey = System.getenv("CURSEFORGE_API_KEY") ?: ""
-//
-//    project {
-//        id = curse_project_id
-//        releaseType = System.getenv('RELEASE_TYPE') ?: "alpha"
-//        changelogType = 'markdown'
-//        changelog = System.getenv("CHANGELOG") ?: "Changelog not available."
-//        addGameVersion getCurseforgeSDKValue(minecraft_sdk)
-//        addGameVersion minecraft_version
-//        addGameVersion "Java 17"
-//        mainArtifact "build/libs/oc2r-library-${minecraft_version}-${minecraft_sdk}-${version}.jar"
-//        relations {
-//            requiredDependency "architectury-api"
-//            requiredDependency "markdownmanual"
-//            requiredDependency "oc2r"
-//            requiredDependency "oc2r-addon-core"
-//        }
-//    }
-//}
-//
-//modrinth {
-//    token = System.getenv("MODRINTH_TOKEN")
-//    projectId = modrinth_project_id
-//    versionType = System.getenv('RELEASE_TYPE') ?: "alpha"
-//    uploadFile = "build/libs/oc2r-library-${minecraft_version}-${minecraft_sdk}-${version}.jar"
-//    gameVersions = [minecraft_version]
-//    loaders = [minecraft_sdk]
-//    changelog = System.getenv("CHANGELOG") ?: "Changelog not available."
-//    dependencies {
-//        required.project "architectury-api"
-//        required.project "markdownmanual"
-//        required.project "oc2r"
-//    }
-//}
+curseforge {
+    apiKey = System.getenv("CURSEFORGE_API_KEY") ?: ""
+
+    project {
+        id = curse_project_id
+        releaseType = System.getenv('RELEASE_TYPE') ?: "alpha"
+        changelogType = 'markdown'
+        changelog = System.getenv("CHANGELOG") ?: "Changelog not available."
+        addGameVersion getCurseforgeSDKValue(minecraft_sdk)
+        addGameVersion minecraft_version
+        addGameVersion "Java 17"
+        mainArtifact "build/libs/oc2r-library-${minecraft_version}-${minecraft_sdk}-${version}.jar"
+        relations {
+            requiredDependency "architectury-api"
+            requiredDependency "markdownmanual"
+            requiredDependency "oc2r"
+            requiredDependency "oc2r-addon-core"
+        }
+    }
+}
+
+modrinth {
+    token = System.getenv("MODRINTH_TOKEN")
+    projectId = modrinth_project_id
+    versionType = System.getenv('RELEASE_TYPE') ?: "alpha"
+    uploadFile = "build/libs/oc2r-library-${minecraft_version}-${minecraft_sdk}-${version}.jar"
+    gameVersions = [minecraft_version]
+    loaders = [minecraft_sdk]
+    changelog = System.getenv("CHANGELOG") ?: "Changelog not available."
+    dependencies {
+        required.project "architectury-api"
+        required.project "markdownmanual"
+        required.project "oc2r"
+        required.project "oc2r-addon-core"
+    }
+}
 
 idea {
     module {
