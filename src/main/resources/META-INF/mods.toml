@@ -1,12 +1,12 @@
 modLoader = "javafml"
 loaderVersion = "[40,)"
-issueTrackerURL = "https://github.com/Libre-Computers/LibreLanguages/issues"
+issueTrackerURL = "https://github.com/therealm18/oc2r-library/issues"
 license = "MIT"
 
 [[mods]]
 modId = "oc2rlibrary"
 version = "${file.jarVersion}"
-displayName = "Libre Languages"
+displayName = "OC2R Library"
 authors = "The Realm 18 Studios"
 description = '''
 OC2R Languages Addon.
